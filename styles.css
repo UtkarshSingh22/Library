@@ -16,13 +16,20 @@ body{
 .sideBar{
     display: grid;
     background-color:rgb(185, 199, 226);
-    grid-template: repeat(5, 1fr) / 1fr 2fr 1fr;
+    grid-template: repeat(10, 1fr) / 1fr 2fr 1fr;
+    row-gap: 20px;
+    padding-top: 50px;
 }
 .addBook{
     grid-column: 2 / 3;
 }
 .deleteAll{
     grid-area: 2/2/3/3;
+}
+.numOfBooks, .numOfBRead{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .numOfBooks{
     grid-area: 3/2/4/3;
@@ -32,4 +39,15 @@ body{
 }
 .myInfo{
     grid-area: 5/1/6/4;
+    justify-self: center;
+    position: fixed;
+    bottom: 0%;
+}
+.butSB{
+    height: 40px;
+}
+.num, .numRead{
+    border: 2px solid black;
+    width: 40px;
+    height: 40px;
 }
