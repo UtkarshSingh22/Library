@@ -78,10 +78,17 @@ body{
     border: 2px solid black;
     width: 400px;
     height: 500px;
+    background-color: #fff;
     position: absolute;
-    top: 25%;
-    left: 40%;
+    top: -150%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(1.25);
     opacity: 0;
+}
+.popup.active{
+    transform: translate(-50%,-50%) scale(1);
+    opacity: 1;
+    top: 50%;
 }
 form{
     display: grid;
@@ -102,4 +109,15 @@ legend{
 }
 .sub{
     margin: 25px;
+}
+#close{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    height: 28px;
+    background-color: pink;
+    border-radius: 50%;
+}
+img{
+    height: 12px;
 }
