@@ -16,7 +16,7 @@ body{
 .sideBar{
     display: grid;
     background-color:rgb(185, 199, 226);
-    grid-template: repeat(4, 1fr) / 1fr 2fr 1fr;
+    grid-template: repeat(5, 1fr) / 1fr 2fr 1fr;
 }
 .addBook{
     grid-column: 2 / 3;
@@ -24,6 +24,12 @@ body{
 .deleteAll{
     grid-area: 2/2/3/3;
 }
-.booksNos{
+.numOfBooks{
     grid-area: 3/2/4/3;
+}
+.numOfBRead{
+    grid-area: 4/2/5/3;
+}
+.myInfo{
+    grid-area: 5/1/6/4;
 }
