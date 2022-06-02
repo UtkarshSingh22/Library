@@ -13,13 +13,27 @@ function addBook(){
 
 function removeBox(){
     const delBtn = document.querySelectorAll('.del');
-    console.log(delBtn)
-    delBtn.forEach(btn => {
-        btn.addEventListener('click', function(e){
-            
-            content.removeChild(content.children[ind]);
+    let ind = 0;
+
+    for(let btn in delBtn){
+        btn.addEventListener('click', function(){
+            for (let i = 0, len = content.children.length; i < len; i++)
+            {
+                content.children[i].onclick = function(){
+                    ind = index;
+                }
+            }
+            console.log(ind)
         })
-    });
+    }
+
+    content.addEventListener('click', function(e){
+        if(e.target.matches('.del')){
+
+            //myLibrary.splice()
+            content.removeChild(e.target.parentNode);
+        }
+    })
 }
 
 const popup = document.querySelector('.popup');
