@@ -1,4 +1,25 @@
+//Variables declaration
+
 let myLibrary = [];
+const popup = document.querySelector('.popup');
+const container = document.querySelector('.container');
+const add = document.querySelector('.addBook');
+const closeBtn = document.querySelector('#close');
+const delAll = document.querySelector('.deleteAll');
+const del = document.querySelector('.del');
+const title = document.querySelector('#title')
+const author = document.querySelector('#author')
+const pages = document.querySelector('#pages')
+const rON = document.querySelector('#rON')
+const form = document.querySelector('.form')
+let content = document.querySelector('.content')
+let delBtn = 0;
+let boxes = 0;
+let count = 0;
+
+
+//Functions and constructors
+
 
 function Book(title, author, pages, readOrNot){
     this.title = title;
@@ -11,49 +32,59 @@ function addBook(){
     popup.classList.add("active");
 }
 
-function removeBox(){
-    const delBtn = document.querySelectorAll('.del');
-    let ind = 0;
+function deleteBoxes(){
+    content.addEventListener('click', (e) => {
+        let target = e.target;
+        if(target.className === "del"){
+            content.removeChild(content.children[target.dataset.index]);
+            myLibrary.splice(target.dataset.index, 1);
 
-    for(let btn in delBtn){
-        btn.addEventListener('click', function(){
-            for (let i = 0, len = content.children.length; i < len; i++)
-            {
-                content.children[i].onclick = function(){
-                    ind = index;
-                }
+            delBtn = document.querySelectorAll('.del');
+            for(let i=0;i<delBtn.length;i++){
+                delBtn[i].dataset.index = i;
             }
-            console.log(ind)
-        })
-    }
-
-    content.addEventListener('click', function(e){
-        if(e.target.matches('.del')){
-
-            //myLibrary.splice()
-            content.removeChild(e.target.parentNode);
         }
+        else{
+            return;
+        }
+        
     })
 }
 
-const popup = document.querySelector('.popup');
-const container = document.querySelector('.container');
-const add = document.querySelector('.addBook');
-const closeBtn = document.querySelector('#close');
-const delAll = document.querySelector('.deleteAll');
-const del = document.querySelector('.del');
-const title = document.querySelector('#title')
-const author = document.querySelector('#author')
-const pages = document.querySelector('#pages')
-const rON = document.querySelector('#rON')
-const form = document.querySelector('.form')
-const content = document.querySelector('.content')
+function readToNotRead(){
+    content.addEventListener('click', (e) => {
+        let target = e.target;
+        if(target.className === "read"){
+            let ind = target.nextSibling.dataset.index;
+            if(myLibrary[ind].readOrNot == true){
+                myLibrary[ind].readOrNot = false;
+                target.textContent = "Not Read";
+            }
+            else{
+                myLibrary[ind].readOrNot = true;
+                target.textContent = "Read";
+            }
+        }
+        else{
+            return;
+        }
+        
+    })
+}
+
+
+// Event listeners and function call
+
+
 
 add.addEventListener('click', addBook);
+
 
 closeBtn.addEventListener('click', function(){
     popup.classList.remove('active');
 });
+
+
 form.addEventListener('submit', (e)=>{
     e.preventDefault();
     popup.classList.remove('active');
@@ -72,6 +103,8 @@ form.addEventListener('submit', (e)=>{
     info3.classList.add('info3');
     read.classList.add('read');
     del.classList.add('del');
+    del.dataset.index = count;
+    count += 1;
 
     info1.textContent = title.value;
     info2.textContent = author.value;
@@ -96,6 +129,15 @@ form.addEventListener('submit', (e)=>{
     pages.value = '';
     rON.checked = false;
 
-    removeBox();
+    boxes = document.querySelectorAll('.box');
+    delBtn = document.querySelectorAll('.del');
+    content = document.querySelector('.content')
+
+    for(let i=0;i<delBtn.length;i++){
+        delBtn[i].dataset.index = i;
+    }
+
 })
 
+deleteBoxes();
+readToNotRead();
