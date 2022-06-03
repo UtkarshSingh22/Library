@@ -137,7 +137,16 @@ form.addEventListener('submit', (e)=>{
         delBtn[i].dataset.index = i;
     }
 
-})
+});
+
+delAll.addEventListener('click', () =>{
+    if(confirm("Do you want to delete all the book?")){
+        for(let i=0;i<myLibrary.length;i++){
+            content.removeChild(content.firstChild);
+        }
+        myLibrary.splice(0, myLibrary.length);
+    }
+});
 
 deleteBoxes();
 readToNotRead();
