@@ -13,6 +13,8 @@ const pages = document.querySelector('#pages')
 const rON = document.querySelector('#rON')
 const form = document.querySelector('.form')
 let content = document.querySelector('.content')
+let booksNos = document.querySelector('.num');
+let readBooks = document.querySelector('.numRead');
 let delBtn = 0;
 let boxes = 0;
 let count = 0;
@@ -43,11 +45,11 @@ function deleteBoxes(){
             for(let i=0;i<delBtn.length;i++){
                 delBtn[i].dataset.index = i;
             }
+            addDetails();
         }
         else{
             return;
         }
-        
     })
 }
 
@@ -64,6 +66,7 @@ function readToNotRead(){
                 myLibrary[ind].readOrNot = true;
                 target.textContent = "Read";
             }
+            addDetails();
         }
         else{
             return;
@@ -72,6 +75,16 @@ function readToNotRead(){
     })
 }
 
+function addDetails(){
+    booksNos.textContent = myLibrary.length;
+    let cnt = 0;
+    for(let i=0; i<myLibrary.length; i++){
+        if(myLibrary[i].readOrNot == true){
+            cnt++;
+        }
+    }
+    readBooks.textContent = cnt;
+}
 
 // Event listeners and function call
 
@@ -137,6 +150,7 @@ form.addEventListener('submit', (e)=>{
         delBtn[i].dataset.index = i;
     }
 
+    addDetails();
 });
 
 delAll.addEventListener('click', () =>{
@@ -145,8 +159,10 @@ delAll.addEventListener('click', () =>{
             content.removeChild(content.firstChild);
         }
         myLibrary.splice(0, myLibrary.length);
+        addDetails();
     }
 });
 
+addDetails();
 deleteBoxes();
 readToNotRead();
