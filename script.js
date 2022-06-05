@@ -23,12 +23,14 @@ let count = 0;
 //Functions and constructors
 
 
-function Book(title, author, pages, readOrNot){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.readOrNot = readOrNot;
-}
+class Book{
+    constructor(title, author, pages, readOrNot){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.readOrNot = readOrNot;
+    }
+};
 
 function addBook(){
     popup.classList.add("active");
@@ -154,7 +156,7 @@ form.addEventListener('submit', (e)=>{
 });
 
 delAll.addEventListener('click', () =>{
-    if(confirm("Do you want to delete all the book?")){
+    if(myLibrary.length > 0 && confirm("Do you want to delete all the books?")){
         for(let i=0;i<myLibrary.length;i++){
             content.removeChild(content.firstChild);
         }
