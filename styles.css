@@ -124,3 +124,9 @@ legend{
 img{
     height: 12px;
 }
+
+.tiVal, .auVal, .pgVal{
+    font-size: 16px;
+    color: red;
+    font-family: monospace;
+}

@@ -15,6 +15,10 @@ const form = document.querySelector('.form')
 let content = document.querySelector('.content')
 let booksNos = document.querySelector('.num');
 let readBooks = document.querySelector('.numRead');
+let tiVal = document.querySelector('.tiVal')
+let auVal = document.querySelector('.auVal')
+let pgVal = document.querySelector('.pgVal')
+let sub = document.querySelector('.sub')
 let delBtn = 0;
 let boxes = 0;
 let count = 0;
@@ -86,6 +90,36 @@ function addDetails(){
         }
     }
     readBooks.textContent = cnt;
+}
+
+function showError(num){
+    if(num == 1){
+        title.setCustomValidity('');
+        if(title.validity.valueMissing){
+            tiVal.textContent = 'Enter a title for the book.'
+        }
+        else if(title.validity.typeMismatch){
+            tiVal.textContent = 'Enter a proper title.'
+        }
+    }
+    else if(num == 2){
+        author.setCustomValidity('');
+        if(author.validity.valueMissing){
+            auVal.textContent = 'Enter the name of the author of the book.'
+        }
+        else if(author.validity.typeMismatch){
+            auVal.textContent = 'Enter a proper name.'
+        }
+    }
+    else{
+        pages.setCustomValidity('');
+        if(pages.validity.valueMissing){
+            pgVal.textContent = 'Enter the number of pages in the book.'
+        }
+        else if(pages.validity.typeMismatch){
+            pgVal.textContent = 'Enter a proper number of pages.'
+        }
+    }
 }
 
 // Event listeners and function call
@@ -162,6 +196,33 @@ delAll.addEventListener('click', () =>{
         }
         myLibrary.splice(0, myLibrary.length);
         addDetails();
+    }
+});
+
+title.addEventListener('input', (e)=>{
+    if(title.validity.valid){
+        tiVal.textContent = '';
+    }
+    else{
+        showError(1);
+    }
+});
+
+author.addEventListener('input', (e)=>{
+    if(author.validity.valid){
+        auVal.textContent = '';
+    }
+    else{
+        showError(2);
+    }
+});
+
+pages.addEventListener('input', (e)=>{
+    if(pages.validity.valid){
+        pgVal.textContent = '';
+    }
+    else{
+        showError(3);
     }
 });
 
