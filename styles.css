@@ -1,119 +1,161 @@
-body{
+body {
     margin: 0%;
+    font-family: "Lato", sans-serif;
 }
-.container{
+
+.container {
     display: grid;
     grid-template: 1fr 5fr / 1fr 4fr;
     height: 100vh;
 }
-.header{
+.header {
     grid-column: 1 / 3;
-    background-color:rgb(71, 167, 211);
+    background-image: linear-gradient(red, rgb(0, 0, 0));
     font-size: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #fff;
+    box-shadow: 2px 2px 6px 8px rgb(255, 255, 255);
+    z-index: 2;
+    font-family: "Arima", cursive;
 }
-.sideBar{
+.sideBar {
     display: grid;
-    background-color:rgb(185, 199, 226);
+    background-color: rgb(0, 0, 0);
     grid-template: repeat(10, 1fr) / 1fr 2fr 1fr;
+    color: #fff;
     row-gap: 20px;
     padding-top: 50px;
     position: sticky;
+    box-shadow: 2px 2px 6px 8px gray;
 }
-.addBook{
+.addBook {
     grid-column: 2 / 3;
+    border-radius: 10px;
+    background-color: #fff;
+    font-size: large;
+    font-family: "Lato", sans-serif;
 }
-.deleteAll{
+.deleteAll {
     grid-area: 2/2/3/3;
+    border-radius: 10px;
+    background-color: #fff;
+    font-size: large;
+    font-family: "Lato", sans-serif;
 }
-.numOfBooks, .numOfBRead{
+.numOfBooks,
+.numOfBRead {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
+    font-size: large;
 }
-.numOfBooks{
+.numOfBooks {
     grid-area: 3/2/4/3;
 }
-.numOfBRead{
+.numOfBRead {
     grid-area: 4/2/5/3;
 }
-.myInfo{
+.myInfo {
     grid-area: 5/1/6/4;
     justify-self: center;
     position: fixed;
     bottom: 0%;
+    font-size: large;
 }
-.butSB{
+a {
+    text-decoration: none;
+    color: rgb(255, 0, 0);
+}
+.butSB {
     height: 40px;
 }
-.num, .numRead{
+.num,
+.numRead {
     border: 2px solid black;
     width: 40px;
     height: 40px;
     display: flex;
     justify-content: end;
 }
-.content{
+.content {
     display: grid;
-    grid-template: repeat(2, 39vh) / repeat(4,1fr);
+    grid-template: repeat(2, 39vh) / repeat(4, 1fr);
     grid-auto-rows: 1fr;
     padding: 20px;
     gap: 10px;
 }
-.box{
+.box {
     border: 2px solid black;
     display: grid;
-    grid-template: repeat(4,1fr) / repeat(2,1fr);
+    grid-template: repeat(4, 1fr) / repeat(2, 1fr);
     padding: 20px;
     gap: 20px;
+    box-shadow: 2px 2px 6px 8px grey;
+    background-color: rgb(255, 255, 255);
+    font-size: large;
+    border-radius: 10px;
 }
-.info1, .info2, .info3{
+.info1,
+.info2,
+.info3 {
     grid-column: 1/3;
     place-self: center;
+    font-size: large;
 }
-.info, .read, .del{
+.info,
+.read,
+.del {
     align-self: center;
     justify-self: center;
+    font-size: large;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    border-radius: 5px;
+    font-family: "Lato", sans-serif;
 }
-.popup{
-    border: 2px solid black;
+.popup {
+    border: 1px solid black;
+    box-shadow: 2px 2px 6px 8px rgb(110, 110, 110);
     width: 400px;
     height: 500px;
-    background-color: #fff;
+    background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(255, 81, 0));
+    color: #fff;
     position: absolute;
     top: -150%;
     left: 50%;
-    transform: translate(-50%,-50%) scale(1.25);
+    transform: translate(-50%, -50%) scale(1.25);
     opacity: 0;
+    font-size: large;
 }
-.popup.active{
-    transform: translate(-50%,-50%) scale(1);
+.popup.active {
+    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
     top: 50%;
 }
-form{
+form {
     display: grid;
-    grid-template-rows: repeat(4,1fr) 0.5fr 1fr;
+    grid-template-rows: repeat(4, 1fr) 0.5fr 1fr;
     height: 500px;
 }
-legend{
+legend {
     place-self: center;
 }
-.title, .author, .pages{
+.title,
+.author,
+.pages {
     display: grid;
     grid-template: 1fr 1fr;
     padding: 10px;
-    
 }
-.rON{
+.rON {
     place-self: center;
 }
-.sub{
+.sub {
     margin: 25px;
 }
-#close{
+#close {
     position: absolute;
     right: 10px;
     top: 10px;
@@ -121,11 +163,13 @@ legend{
     background-color: pink;
     border-radius: 50%;
 }
-img{
+img {
     height: 12px;
 }
 
-.tiVal, .auVal, .pgVal{
+.tiVal,
+.auVal,
+.pgVal {
     font-size: 16px;
     color: red;
     font-family: monospace;

@@ -1,58 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
-    <script src="./script.js" defer></script>
-    <title>📚 Library</title>
-</head>
-<body>
-    <div class="container">
-        <div class="header">Library</div>
-        <div class="sideBar">
-            <button class="addBook butSB">Add</button>
-            <button class="deleteAll butSB">Delete All</button>
-            <div class="numOfBooks">
-                <div class="booksNos">Number of Books :</div>
-                <div class="num"></div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./styles.css" />
+        <script src="./script.js" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Arima:wght@600&family=Lato:ital,wght@1,300&display=swap"
+            rel="stylesheet"
+        />
+        <title>Library</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">Library</div>
+            <div class="sideBar">
+                <button class="addBook butSB">Add</button>
+                <button class="deleteAll butSB">Delete All</button>
+                <div class="numOfBooks">
+                    <div class="booksNos">Number of Books :</div>
+                    <div class="num"></div>
+                </div>
+                <div class="numOfBRead">
+                    <div class="booksRead">Books Read :</div>
+                    <div class="numRead"></div>
+                </div>
+                <div class="myInfo">
+                    <div class="name">
+                        Built by: Utkarsh Singh |
+                        <a href="https://github.com/UtkarshSingh22/Library"
+                            >Code</a
+                        >
+                    </div>
+                </div>
             </div>
-            <div class="numOfBRead">
-                <div class="booksRead">Books Read :</div>
-                <div class="numRead"></div>
-            </div>
-            <div class="myInfo">
-                <div class="name">Built by: Utkarsh Singh | <a href="https://github.com/UtkarshSingh22/Library">Code</a></div>
-            </div>
+            <div class="content"></div>
         </div>
-        <div class="content"></div>
-    </div>
-    <div class="popup">
-        <form class="form">
-            <legend>Enter the Details</legend>
-            <button id="close"><img src="./close_FILL0_wght400_GRAD200_opsz48.svg" alt="close"></button>
-            <div class="title">
-                <label for="title">TITLE</label>
-                <input type="text" id="title" required>
-                <span class="tiVal"></span>
-            </div>
-            <div class="author">
-                <label for="author">AUTHOR</label>
-                <input type="text" id="author" required>
-                <span class="auVal"></span>
-            </div>
-            <div class="pages">
-                <label for="pages">NUMBER OF PAGES</label>
-                <input type="number" id="pages" required>
-                <span class="pgVal"></span>
-            </div>
-            <div class="rON">
-                <label for="rON">HAVE YOU READ IT?</label>
-                <input type="checkbox" id="rON">
-            </div>
-            <button type="submit" class="sub">Submit</button>
-        </form>
-    </div>
-</body>
+        <div class="popup">
+            <form class="form">
+                <legend>Enter the Details</legend>
+                <button id="close">
+                    <img
+                        src="./close_FILL0_wght400_GRAD200_opsz48.svg"
+                        alt="close"
+                    />
+                </button>
+                <div class="title">
+                    <label for="title">TITLE</label>
+                    <input type="text" id="title" required />
+                    <span class="tiVal"></span>
+                </div>
+                <div class="author">
+                    <label for="author">AUTHOR</label>
+                    <input type="text" id="author" required />
+                    <span class="auVal"></span>
+                </div>
+                <div class="pages">
+                    <label for="pages">NUMBER OF PAGES</label>
+                    <input type="number" id="pages" required />
+                    <span class="pgVal"></span>
+                </div>
+                <div class="rON">
+                    <label for="rON">HAVE YOU READ IT?</label>
+                    <input type="checkbox" id="rON" />
+                </div>
+                <button type="submit" class="sub">Submit</button>
+            </form>
+        </div>
+    </body>
 </html>
